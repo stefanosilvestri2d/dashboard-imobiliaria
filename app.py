@@ -13,13 +13,13 @@ df.columns = df.columns.str.strip()
 # -----------------------------
 st.subheader("Pesquisar apartamentos")
 
-# Filtro por cidade
-usar_cidade = st.checkbox("Filtrar por cidade")
+# Filtro por bairro
+usar_cidade = st.checkbox("Filtrar por bairro")
 
 if usar_cidade:
     cidade = st.selectbox(
-        "Cidade",
-        sorted(df["Cidade"].unique())
+        "bairro",
+        sorted(df["Bairro"].unique())
     )
 
 # Filtro por valor
@@ -74,7 +74,7 @@ if pesquisar:
     resultado = df.copy()
 
     if usar_cidade:
-        resultado = resultado[resultado["Cidade"] == cidade]
+        resultado = resultado[resultado["Bairro"] == cidade]
 
     if usar_valor:
         resultado = resultado[resultado["Valor"] <= valor]
